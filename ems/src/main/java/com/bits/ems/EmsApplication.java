@@ -1,13 +1,13 @@
-package com.bits.greet;
+package com.bits.ems;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GreetApplication {
+public class EmsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GreetApplication.class, args);
+		SpringApplication.run(EmsApplication.class, args);
 	}
 
 }
