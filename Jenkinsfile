@@ -8,8 +8,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat "cd ems"
-                bat "mvn -Dmaven.test.failure.ignore=true clean package"
+                bat """
+                    cd ems
+                    mvn -Dmaven.test.failure.ignore=true clean package
+                """
             }
         }
     }
