@@ -25,7 +25,7 @@ pipeline {
         stage("Upload"){
             steps{
                     
-             s3Upload(file:"ems-0.0.1-SNAPSHOT.jar", bucket:"ems-artifact", path:"ems")
+                s3Upload(entries[{file:"ems-0.0.1-SNAPSHOT.jar", bucket:"ems-artifact", path:"ems"}])
                       
             }
             
