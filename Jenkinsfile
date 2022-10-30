@@ -24,18 +24,18 @@ pipeline {
         }
         stage("Upload"){
             steps{
-                    withAWS(region:"${region}", credentials:"${aws_credential}){
-                        s3Upload(file:"${TAG_NAME}", bucket:"${bucket}", path:"${TAG_NAME}/")
-                    }    
+                    //withAWS(region:"${region}", credentials:"${aws_credential}){
+                        s3Upload(file:"ems-0.0.1-SNAPSHOT.jar", bucket:"ems-artifact", path:"ems")
+                    //}    
             }
-            post {
+            /*post {
                     success{
                         office365ConnectorSend message: "${notify_text}<br>commit id: ${commitId}", status:"Success Upload", webhookUrl:"${webHook_url}"
                     }
                     failure{
                         office365ConnectorSend message: "Fail build,<br> see (<${env.BUILD_URL}>)", status:"Fail Upload", webhookUrl:"${webHook_url}"
                     }
-            }
+            }*/
         }
     }
 }
