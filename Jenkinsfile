@@ -23,10 +23,10 @@ pipeline {
             }
         }
         stage("Upload"){
-            
+            steps {
                 s3Upload(consoleLogLevel: 'INFO', dontSetBuildResultOnFailure: false, dontWaitForConcurrentBuildCompletion: false, entries: [[bucket: 'ems-artifact', excludedFile: '', flatten: false, gzipFiles: false, keepForever: false, managedArtifacts: false, noUploadOnFailure: false, selectedRegion: 'us-iso-east-1',  sourceFile: 'jar']])
                 
-            
+            }
             
         }
     }
