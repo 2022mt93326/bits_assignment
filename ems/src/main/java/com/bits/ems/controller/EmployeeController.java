@@ -15,7 +15,7 @@ public class EmployeeController {
     public EmployeeController() {
         employeeList.add(new Employee(UUID.randomUUID(), "Purbita Jana","9088456700"));
         employeeList.add(new Employee(UUID.randomUUID(), "Priya Prakash","9900989099"));
-        employeeList.add(new Employee(UUID.randomUUID(), "Sunil Patil","7899870098"));
+        employeeList.add(new Employee(UUID.randomUUID(), "Suneel Patil","7899870098"));
     }
 
     @GetMapping
