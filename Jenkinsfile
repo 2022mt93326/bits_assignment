@@ -25,20 +25,8 @@ pipeline {
         stage("Upload"){
             steps{
                     
-                 $class: 'S3BucketPublisher',
-        entries: [[
-            sourceFile: 'mybinaryFile',
-            bucket: 'GoBinaries',
-            selectedRegion: 'eu-west-1',
-            noUploadOnFailure: true,
-            managedArtifacts: true,
-            flatten: true,
-            showDirectlyInBrowser: true,
-            keepForever: true,
-        ]],
-        profileName: 'myprofile',
-        dontWaitForConcurrentBuildCompletion: false, 
-    ])
+               s3Upload(pathStyleAccessEnabled: true, payloadSigningEnabled: true, file:'file.txt', bucket:'my-bucket', path:'path/to/target/file.txt')
+
                       
             }
             
