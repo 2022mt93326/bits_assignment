@@ -25,7 +25,6 @@ pipeline {
         stage("Upload"){
             when { 
               allOf { 
-                expression { env.GITHUB_PR_STATE == "CLOSE" }
                 expression { env.GITHUB_PR_TARGET_BRANCH == "master" }
               } 
             }
