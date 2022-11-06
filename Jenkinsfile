@@ -25,7 +25,7 @@ pipeline {
         stage("Upload"){
             when { 
               anyOf{
-                    branch "origin/main"
+                    branch "main"
                 }
             }
             steps {
