@@ -32,5 +32,18 @@ pipeline {
             } 
             
         }
+         stage("Deploy"){
+            when { 
+                expression {env.GIT_BRANCH == 'main'}
+            } 
+            steps {
+                 bat """
+                    powershell
+                    ssh -o StrictHostKeyChecking=no -i 'D:\ems.pem' ec2-user@18.181.82.198
+                """
+            
+            } 
+            
+        }
     }
 }
