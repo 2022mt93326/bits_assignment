@@ -39,7 +39,7 @@ pipeline {
             steps {
                  bat """
                     powershell
-                    ssh -o StrictHostKeyChecking=no -i 'D:\ems.pem' ec2-user@18.181.82.198
+                    ssh -o StrictHostKeyChecking=no -i 'D:\\ems.pem' ec2-user@18.181.82.198
                 """
             
             } 
