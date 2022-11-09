@@ -23,7 +23,7 @@ pipeline {
             }
         } 
         stage("Upload"){
-            when { 
+            when {  
                 expression {env.GIT_BRANCH == 'main'}
             } 
             steps {
