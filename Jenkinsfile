@@ -15,7 +15,7 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
+            steps { 
                 bat """
                     cd ems
                     mvn test
