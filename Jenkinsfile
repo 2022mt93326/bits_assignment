@@ -37,8 +37,11 @@ pipeline {
                 expression {env.GIT_BRANCH == 'main'}
             } 
             steps {  
-                sshagent(['ssh-key']) { 
-                   sh "ssh -o StrictHostKeyChecking=no ec2-user@18.181.82.198"
+                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'ssh-key-file', passphraseVariable: 'passphrase', usernameVariable: 'username')]) {
+ 
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@18.181.82.198"
+                } 
+                  
                 }
             } 
             
