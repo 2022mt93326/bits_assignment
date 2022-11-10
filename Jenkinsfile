@@ -41,7 +41,7 @@ pipeline {
                 expression {env.GIT_BRANCH == 'main'}
             } 
             steps {  
-                withCredentials([string(credentialsId: 'ssh-key', variable: 'SSH_KEY')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key')]) {
  
                     sh "ssh -o StrictHostKeyChecking=no ec2-user@52.197.235.138"
                  
