@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+     environment {
+        SSH_KEY = credentials('ssh-key')
+    }
 
     tools {
         maven 'Maven 3.8.6'
@@ -37,7 +41,7 @@ pipeline {
                 expression {env.GIT_BRANCH == 'main'}
             } 
             steps {  
-                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'ssh-key-file', passphraseVariable: 'passphrase', usernameVariable: 'username')]) {
+                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', variable: 'SSH_KEY')]) {
  
                     sh "ssh -o StrictHostKeyChecking=no ec2-user@52.197.235.138"
                  
