@@ -41,12 +41,12 @@ pipeline {
                 expression {env.GIT_BRANCH == 'main'}
             } 
             steps {  
-                withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'ems')]) {
+               
  
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@52.197.235.138"
+                    sh "ssh -o StrictHostKeyChecking=no -i 'ems.pem'  ec2-user@52.197.235.138"
                  
                   
-                }
+                
             } 
             
         }
