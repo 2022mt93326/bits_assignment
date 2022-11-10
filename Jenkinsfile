@@ -39,7 +39,7 @@ pipeline {
             steps {  
                 withCredentials([sshUserPrivateKey(credentialsId: 'ssh-key', keyFileVariable: 'ssh-key-file', passphraseVariable: 'passphrase', usernameVariable: 'username')]) {
  
-                    sh "ssh -o StrictHostKeyChecking=no ec2-user@18.181.82.198"
+                    sh "ssh -o StrictHostKeyChecking=no ec2-user@52.197.235.138"
                  
                   
                 }
