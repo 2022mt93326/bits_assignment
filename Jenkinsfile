@@ -42,7 +42,7 @@ pipeline {
             } 
             steps {  
                
- 
+                    sh "chmode 400 ems.pem"
                     sh "ssh -o StrictHostKeyChecking=no -i 'ems.pem'  ec2-user@52.197.235.138"
                  
                   
