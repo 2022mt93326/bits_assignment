@@ -36,7 +36,7 @@ pipeline {
             when { 
                 expression {env.GIT_BRANCH == 'main'}
             } 
-            steps { 
+            steps {  
                 bat """
                    ssh-agent
                 """
