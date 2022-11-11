@@ -41,9 +41,8 @@ pipeline {
                 expression {env.GIT_BRANCH == 'main'}
             } 
             steps {  
-               
                     sh "chmod 400 ems.pem"
-                    sh "ssh -o StrictHostKeyChecking=no -i 'ems.pem'  ec2-user@52.197.235.138"
+                    sh "ssh -o StrictHostKeyChecking=no -i $SSH_KEY  ec2-user@52.197.235.138"
                  
                   
                 
