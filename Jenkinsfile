@@ -56,7 +56,7 @@ pipeline {
         }
         post {
             failure {
-                mail to: 2022MT93326@wilp.bits-pilani.ac.in, 
+                mail to: '2022MT93326@wilp.bits-pilani.ac.in', 
                     subject: 'Pipeline failed for ${currentBuild.fullDisplayName}'
                     body: "Broken build : ${env.BUILD_URL}"
             }
