@@ -42,9 +42,9 @@ pipeline {
             } 
             steps {  
                    sshagent(['ssh-key']) {
-                     sh "ssh -o StrictHostKeyChecking=no -tt ec2-user@52.197.235.138"
-                     aws s3 cp s3://ems-artifact/ems-0.0.1-SNAPSHOT.jar ems-0.0.1-SNAPSHOT.jar
-                     java -jar ems-0.0.1-SNAPSHOT.jar
+                     sh "ssh -o StrictHostKeyChecking=no -tt ec2-user@3.115.10.230"
+                     sh "aws s3 cp s3://ems-artifact/ems-0.0.1-SNAPSHOT.jar ems-0.0.1-SNAPSHOT.jar"
+                     sh "java -jar ems-0.0.1-SNAPSHOT.jar"
                   }    
        
             } 
