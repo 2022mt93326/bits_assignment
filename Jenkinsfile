@@ -47,7 +47,7 @@ pipeline {
                             aws s3 cp s3://ems-artifact/ems-0.0.1-SNAPSHOT.jar ems-0.0.1-SNAPSHOT.jar
                             xargs kill <pid.txt
                             java -jar ems-0.0.1-SNAPSHOT.jar &
-                            echo $! >> pid.txt
+                            echo $! > pid.txt
                             exit
                             EOF
                        '''
