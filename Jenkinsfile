@@ -45,7 +45,7 @@ pipeline {
                        sh'''#!/bin/bash
                             ssh -o StrictHostKeyChecking=no -tt ec2-user@3.115.10.230 << 'EOF'
                             aws s3 cp s3://ems-artifact/ems-0.0.1-SNAPSHOT.jar ems-0.0.1-SNAPSHOT.jar
-                            java -jar ems-0.0.1-SNAPSHOT.jar
+                            java -jar ems-0.0.1-SNAPSHOT.jar &
                             exit
                             EOF
                        '''
