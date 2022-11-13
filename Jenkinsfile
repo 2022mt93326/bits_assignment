@@ -50,6 +50,24 @@ pipeline {
               }    
             }  
         }
+        stage("Deploy to production"){
+            when { 
+                expression {env.GIT_BRANCH == 'main'}
+            } 
+            steps {  
+               sshagent(['ssh-key']) {
+                   sh'''#!/bin/bash
+                        ssh -o StrictHostKeyChecking=no -tt ec2-user@52.196.238.241 << 'EOF'
+                        aws s3 cp s3://ems-artifact/ems-0.0.1-SNAPSHOT.jar ems-0.0.1-SNAPSHOT.jar
+                        xargs kill <pid.txt
+                        java -jar ems-0.0.1-SNAPSHOT.jar &
+                        echo $! > pid.txt
+                        exit
+                        EOF
+                   '''
+              }    
+            }  
+        }
     }
     post {
         success {
