@@ -72,22 +72,22 @@ pipeline {
     post {
         success {
             mail to: '2022MT93326@wilp.bits-pilani.ac.in', 
-                subject: 'Pipeline succeeded',
+                subject: 'Pipeline succeeded for ${currentBuild.fullDisplayName}',
                 body: "Successful build : ${env.BUILD_URL}"
         }
         unstable {
             mail to: '2022MT93326@wilp.bits-pilani.ac.in', 
-                subject: 'Pipeline unstabled',
+                subject: 'Pipeline unstabled for ${currentBuild.fullDisplayName}',
                 body: "Unstable build : ${env.BUILD_URL}"
         }
         changed {
             mail to: '2022MT93326@wilp.bits-pilani.ac.in', 
-                subject: 'Pipeline status change',
+                subject: 'Pipeline status change for ${currentBuild.fullDisplayName}',
                 body: "Build : ${env.BUILD_URL}"
         }
         failure {
             mail to: '2022MT93326@wilp.bits-pilani.ac.in', 
-                subject: 'Pipeline failed',
+                subject: 'Pipeline failed for ${currentBuild.fullDisplayName}',
                 body: "Broken build : ${env.BUILD_URL}"
         }
     }
