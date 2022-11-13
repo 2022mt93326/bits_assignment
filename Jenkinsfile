@@ -82,7 +82,7 @@ pipeline {
         }
         changed {
             mail to: '2022MT93326@wilp.bits-pilani.ac.in', 
-                subject: 'Pipeline status change',
+                subject: 'Pipeline status changed',
                 body: "Build : ${env.BUILD_URL}"
         }
         failure {
