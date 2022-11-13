@@ -2,10 +2,12 @@ package com.bits.ems;
 
 import com.bits.ems.controller.EmployeeController;
 import com.bits.ems.dto.Employee;
+import com.bits.ems.exception.NotFoundException;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.UUID;
 
 public class EmsControllerTests {
 
@@ -30,4 +32,18 @@ public class EmsControllerTests {
 		Assert.assertTrue(employees.size() > 0);
 	}
 
+	@Test
+	public void shouldReturnEmployeeWhenFound() {
+		List<Employee> employees = controller.getEmployees();
+		String searchId = employees.get(0).getId().toString();
+		Employee employee = controller.getEmployeeById(searchId);
+		Assert.assertNotNull(employee);
+		Assert.assertEquals(searchId, employee.getId().toString());
+	}
+
+	@Test(expected = NotFoundException.class)
+	public void shouldThrowWhenEmployeeNotFound() {
+		String searchId = UUID.randomUUID().toString();
+		controller.getEmployeeById(searchId);
+	}
 }
