@@ -36,7 +36,7 @@ pipeline {
             when { 
                 expression {env.GIT_BRANCH == 'main'}
             } 
-            steps {  
+            steps { 
                sshagent(['ssh-key']) {
                    sh'''#!/bin/bash
                         ssh -o StrictHostKeyChecking=no -tt ec2-user@3.115.10.230 << 'EOF'
