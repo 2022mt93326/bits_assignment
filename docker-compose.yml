@@ -1,0 +1,26 @@
+services:
+  discovery-server:
+    ports:
+      - 8761:8761
+    build: /discovery-server
+  api-gateway:
+    ports:
+      - 8181:8181
+    build: /api-gateway
+  auth-service:
+    ports:
+      - 9004:9004
+    build: /auth-service
+  quotation-management-system:
+    ports:
+      - 9098:9098
+    build: /quotation-management-system
+  product-management-system:
+    ports:
+      - 9091:9091
+    build: /product-management-system
+  rule-engine:
+    ports:
+      - 9095:9095
+    build: /rule-engine
+  
